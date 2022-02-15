@@ -1,9 +1,10 @@
-# BreadcrumbsResearch
+## Breadcrumbs Research
+This is our repo for individual research into languages/frameworks/libraries and documentation drafts for our project in the preliminary phases of development
 
-This is our repo for individual research into languages/frameworks/libraries for our project in the preliminary phases of development
 
-The current development distribution is: <br/>
-Yash: React.js, TypeScript, JSX. <br/>
-Bren: C++, WASM.
+| Developer         | Current focus                     |
+| :---------------- | :-------------------------------- |
+| Yash K. @Thaeriem | ReactTS (TypeScript, TSX)         |
+| Bren P. @Acumane  | C++, WebAssembly + AssemblyScript |
 
 This Repo will be updated with resources and relevant material as the semester progresses.
