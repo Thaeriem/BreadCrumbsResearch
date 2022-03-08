@@ -1,0 +1,29 @@
+
+Updated on 03/07/2022 by Yash Kaul
+
+Summary of various links about SQLite and important info from each:
+1) https://www.sqlitetutorial.net/
+ - SQLite Tutorial
+  - SQLite is a open-source, stand-alone database system
+    that works by storing data and then allowing users to 
+    retrieve data using SQL queries.
+  - You can do basic queries by using the keyword SELECT
+  - You may sort queries in either ascending or descending order
+  - You can filter and group data using arbritary criteria
+  - You may add constraints to data (will be usefull for removing
+    sensative info from our graph)
+2) https://www.codeproject.com/Articles/5119331/Fetch-and-Search-Your-Chrome-History  
+ - Fetch and Search Your Chrome History
+  - SQLite stores data in dynamic arrays through the inbuilt CSimpleArray construct
+  - SQLite creates a backup storage database to copy from in order to not interfere
+    with user processes that are running while copying the user data.
+  - There is a fetch all browsing history embed that we can implement/call from but 
+    for other types of data this may pose as an issue.
+3) http://2016.padjo.org/tutorials/sqlite-your-browser-history/
+ - Reading Your Browser's History with SQLite
+  - Insightful understanding about personal versus public user data and that there  
+    should always be a lens and filter while using SQLite for private databases
+  - Consider the fact that users may use different browsers and we want to have 
+    a program that supports more than Chrome (discuss with team members)
+  - The history tab on SQLite has in-build filtering because the number of links would
+    be overbearing so we can pre-search for key links rather than having to parse them later
