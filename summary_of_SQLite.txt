@@ -27,3 +27,23 @@ Summary of various links about SQLite and important info from each:
     a program that supports more than Chrome (discuss with team members)
   - The history tab on SQLite has in-build filtering because the number of links would
     be overbearing so we can pre-search for key links rather than having to parse them later
+4) https://gist.github.com/dropmeaword/9372cbeb29e8390521c2
+ SQL calls for Chrome db:
+  SELECT 
+    datetime(last_visit_time/1000000-11644473600, "unixepoch") as last_visited, 
+    url, 
+    title, 
+    visit_count 
+  FROM urls;
+
+5) http://html5doctor.com/introducing-web-sql-databases/
+ - "If you haven’t guessed from the overly verbose specification title, Web SQL Databases 
+   is a spec that brings SQL to the client side. If you have a back-end developer’s background,
+   then you’ll probably be familiar with SQL and happy as a pig in muck."
+ - Creating and Opening Databases
+   -If you try to open a database that doesn’t exist, the API will create it on the fly for you.
+    You also don’t have to worry about closing databases.
+ - Transactions. 
+   -Transactions can be used to rollback. This means that if a transaction — which could contain 
+   one or more SQL statements — fails (either the SQL or the code in the transaction), 
+   the updates to the database are never committed.
