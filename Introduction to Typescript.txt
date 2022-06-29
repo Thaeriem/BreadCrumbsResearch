@@ -81,3 +81,40 @@ TypeScript Definition file (with .d.ts extension) provides definition for extern
 Hence, TypeScript code can contain these libraries.
 
 TypeScript supports Object Oriented Programming concepts like classes, interfaces, inheritance, etc.
+
+class Person {
+    private name: string;
+    private age: number;
+    private salary: number;
+
+    constructor(name: string, age: number, salary: number) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    toString(): string {
+        return `${this.name} (${this.age}) (${this.salary})`; // As of version 1.4
+    }
+}
+
+declare namespace arithmetics {
+    add(left: number, right: number): number;
+    subtract(left: number, right: number): number;
+    multiply(left: number, right: number): number;
+    divide(left: number, right: number): number;
+}
+
+function successor(n: number | bigint): number | bigint {
+    return ++n
+}
+
+type Car = {
+  make: string;
+  model: string;
+  color: string;
+}
+
+function print(car: Car): void {
+  console.log(`${car.make} ${car.model} (${car.color})`);
+}
