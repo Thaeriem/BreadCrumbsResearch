@@ -82,6 +82,19 @@ Hence, TypeScript code can contain these libraries.
 
 TypeScript supports Object Oriented Programming concepts like classes, interfaces, inheritance, etc.
 
+Here are some important methods which can be used on String types:
+split() – this method will split the string into an array.
+charAt() – this method will give the first character for the index given.
+indexOf() – this method will give the position of the first occurrence for the value given to it.
+Replace () – this method takes 2 strings, first the value to search in the string and if present will replace it will the 2nd one and will give a new string back.
+Trim () – this method will remove white spaces from both sides of the string.
+substr() – this method will give a part of the string which will depend on the position given as start and end.
+substring() – this method will give a part of the string which will depend on the position given as start and end. The character at the end position will be excluded.
+toUpperCase() -will convert the string to uppercase
+toLowerCase() – will convert the string to lowercase.
+
+
+
 class Person {
     private name: string;
     private age: number;
@@ -118,3 +131,127 @@ type Car = {
 function print(car: Car): void {
   console.log(`${car.make} ${car.model} (${car.color})`);
 }
+Example:
+// app.ts
+
+interface OS {
+    name: String;
+    language: String;
+}
+const desert = (type: OS): void => {
+  console.log('Android ' + type.name + ' has ' + type.language + ' language');
+};
+
+const nougat = {
+  name: 'N', 
+  language: 'Java'
+}
+
+desert(nougat);
+// app.js
+
+var desert = function (type) {
+    console.log('Android ' + type.name + ' has ' + type.language + ' language');
+};
+var nougat = {
+    name: 'N',
+    language: 'Java'
+};
+desert(nougat);
+// app.ts
+
+class Car {
+    model: String;
+    doors: Number;
+    isElectric: Boolean;
+    
+    constructor(model: String, doors: Number, isElectric: Boolean) {
+        this.model = model;
+        this.doors = doors;
+        this.isElectric = isElectric;
+    }
+
+    make(): void {
+        console.log(`This car is ${this.model} which has ${this.doors} doors` );
+    }
+}
+let newCar = new Car('Innova', 4, false);
+newCar.make();
+
+Example Class: 
+class Students {
+    age : number;
+    name : string;
+    roll_no : number;
+    
+    constructor(age: number, name:string, roll_no: number) {
+        this.age = age;
+        this.name = name;
+        this.roll_no = roll_no;
+    }
+
+    getRollNo(): number {
+        return this.roll_no;
+    }
+
+    getName() : string {
+        return this.name;
+    }
+
+    getAge() : number {
+        return this.age;
+    }
+}
+
+Inheritance Example: 
+class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getName(): string {
+        return this.name;
+    }
+
+    getAge(): number {
+        return this.age;
+    }
+}
+
+class Student extends Person {
+    tmarks: number;
+    constructor(name: string, age: number, tmarks: number) {
+        super(name, age);
+    }
+    getMarks(): number {
+        return this.tmarks;
+    }
+
+    setMarks(tmarks) {
+        this.tmarks = tmarks;
+    }
+}
+
+let _std1 = new Student('Sheena', 24, 500);
+_std1.getAge(); // output is 24
+_std1.getMarks(); // output is 500
+
+TS to JS using Requirejs:
+define(["require", "exports"], function (require, exports) {
+    "use strict";
+    var Customer = /** @class */ (function () {
+        function Customer(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Customer.prototype.getName = function () {
+            return this.name;
+        };
+        return Customer;
+    }());
+    return Customer;
+});
