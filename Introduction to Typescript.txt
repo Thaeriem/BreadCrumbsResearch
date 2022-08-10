@@ -255,3 +255,43 @@ define(["require", "exports"], function (require, exports) {
     }());
     return Customer;
 });
+https://www.educative.io/blog/typescript-tutorial
+Types
+As the name suggests, everything in Typescript deals with types. 
+Since Typescript is the typed version of JS, we can specify types to
+variables when they are declared. This makes your code more scalable 
+and reliable, and you can check that your code runs properly before runtime.
+
+If you’ve worked with Javascript before, you know that it has eight types:
+string, number, null, undefined, object, symbol, bigint, and boolean. 
+Javascript is dynamically typed, which means that it doesn’t know the type of your 
+variable until runtime and variables can change their type. Even if we change 
+them intentionally, errors and bugs often arise. Typescript helps with this problem 
+by adding static types to the code.
+
+In Typescript, arrays are a collection of the same object. You can declare a typed 
+array in two ways, either with the datatype followed by [ ], or the generic array 
+approach with Array<elemType>.
+
+Tuples are a lot like arrays, but we can define the type of data that are stored 
+in each position. Tuple types enable you to make organized arrays. You can express 
+an array when you know the type of a fixed number of elements and predefine your types in order.
+
+Enums allow us to define a set of named predefined constants. These are defined 
+with the enum keyword. You can define a numeric or a string enum.
+
+enum MyStringEnum {
+    ChoiceA = "A",
+    ChoiceB = "B",
+}
+
+Type Inference is what the compiler uses to determine different types.
+ It is smart enough to figure out types from their values. That way, 
+ you won’t have to specify your types in your code. This a powerful feature of Typescript
+that allows you to manipulate types and combine them.
+
+The Typescript inference features can infer types in the following scenarios:
+
+When variables are declared and initialized
+When default values are set as parameters
+When the function return types are determined

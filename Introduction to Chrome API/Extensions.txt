@@ -111,3 +111,35 @@ function constructOptions(buttonColors) {
 
 // Initialize the page by constructing the color options
 constructOptions(presetButtonColors);
+
+Using the notifications API
+As the extension’s name suggests, it is a notifications extension, so let’s add some!
+
+Before you use some of the APIs, you need to specify permissions for them in the manifest.json 
+file. One of the reasons to do this is so that your extension users know which permissions your 
+extension is asking before installing them.
+
+const reset = document.getElementById( 'notify-reset' );
+const counter = document.getElementById( 'notify-count' );
+
+chrome.storage.local.get( ['notifyCount'], data => {
+  let value = data.notifyCount || 0;
+  counter.innerHTML = value;
+} );
+
+chrome.storage.onChanged.addListener( ( changes, namespace ) => {
+  if ( changes.notifyCount ) {
+    let value = changes.notifyCount.newValue || 0;
+    counter.innerHTML = value;
+  }
+});
+
+reset.addEventListener( 'click', () => {
+  chrome.storage.local.clear();
+  text.value = '';
+} );
+
+This code does two things:
+
+It updates the notification count in the popup when we open the popup or the storage value changes. For listening to storage change, storage.onChanged is used.
+In part, we clear the storage when the user clicks on the reset button.
