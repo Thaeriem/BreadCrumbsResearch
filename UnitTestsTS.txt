@@ -1,5 +1,24 @@
 UNIT TESTS IN TS:
 https://docs.microsoft.com/en-us/visualstudio/javascript/unit-testing-javascript-with-visual-studio?view=vs-2022&tabs=mocha
+
+What Is Unit Testing? What’s the Benefit?
+Software testing comes in many sizes and shapes, 
+but we can group all of those into two big buckets: 
+manual and automated testing. Unit testing belongs to the 
+latter group. It’s a type of automated testing that verifies
+that tiny pieces—the so-called units—of an application work
+the way you expect, but in complete isolation. 
+In other words, when unit testing, each unit shouldn’t 
+communicate with other units or with dependencies that are 
+external to the code—e.g., the filesystem, a database, a call to a REST API, etc.
+-Unit tests tend to be fast, providing quick feedback to engineers.
+-When a unit test fails, you usually know precisely where the problem is.
+-Feedback on code's quality-hard-to-test code.
+-There’s protection against regressions.
+-Unit tests also work as executable code documentation.
+-Unit testing makes refactoring possible.
+TL;DR Unit tests are important for clean and workable codebases.
+
 You can write and run unit tests in Visual Studio using 
 some of the more popular JavaScript frameworks without 
 the need to switch to a command prompt. 
@@ -76,3 +95,43 @@ describe('Test Suite 1', function () {
 Some test frameworks may require additional npm packages for test detection.
  For example, jest requires the jest-editor-support npm package. 
  If necessary, check the documentation for the specific framework.
+
+Additional Examples:
+**
+function add(numbers: string): number {
+    let integers = numbers.split(',').map(x => parseInt(x));
+    let negatives = integers.filter(x => x < 0);
+ 
+    if (negatives.length > 0)
+        throw new RangeError('Negatives are not allowed: ' + negatives.join(', '));
+ 
+    return integers
+        .filter(x => x <= 1000)
+        .reduce((a, b) => a + b, 0);
+}
+ 
+let result = add('1, 2, 4, 5');
+console.log(result);
+**
+As you can see, by the end of the file, we call the add
+method and print the result to the log. 
+
+Now that you have some production code, the next step 
+is to test it. That leads to some questions. What exactly should we test here? In which way?
+
+The code in the example is a great fit for unit testing. 
+Here are some of the scenarios you can unit test:
+-Pass an empty string.
+-Pass a single number.
+-Check whether the code throws the expected exception if you pass negative numbers.
+-Pass a string with several numbers.
+
+My Test Cases:
+**
+module.exports = {
+  transform: {'^.+\\.ts?$': 'ts-jest'},
+  testEnvironment: 'node',
+  testRegex: '/tests/.*\\.(test|spec)?\\.(ts|tsx)$',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+};
+**
