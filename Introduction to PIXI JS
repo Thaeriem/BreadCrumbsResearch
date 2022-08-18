@@ -1,0 +1,74 @@
+Introduction to PIXI JS ----------
+Documentation --> https://pixijs.download/dev/docs/index.html
+PIXI JS is used to render D3 Force for Javascript web applications:
+From their website: 
+    "PixiJS is a rendering library that will allow you to 
+create rich, interactive graphics, cross-platform applications, 
+and games without having to dive into the WebGL API or 
+deal with browser and device compatibility."
+
+Main benefits
+-PixiJS has full WebGL support and seamlessly 
+falls back to HTML5's canvas if needed.
+-As a framework, PixiJS is a fantastic tool
+for authoring interactive content, with Adobe Flash 
+being discontinued.
+-Used with lot of web rendering and is relatively lightweight.
+
+The Basics:
+Pixi is an extremely fast 2D sprite rendering engine.
+ What does that mean? It means that it helps you to 
+ display, animate and manage interactive graphics 
+ so that it's easy for you to make games and applications 
+ using JavaScript and other HTML5 technologies. 
+ It has a sensible, uncluttered API and includes many 
+ useful features, like supporting texture atlases and 
+ providing a streamlined system for animating sprites 
+ (interactive images). It also gives you a complete scene
+graph so that you can create hierarchies of nested sprites
+(sprites inside sprites), as well as letting you attach mouse 
+and touch events directly to sprites. And, most importantly, 
+Pixi gets out of your way so that you can use as much or as 
+little of it as you want to, adapt it to your personal coding 
+style, and integrate it seamlessly with other useful frameworks.
+--> Used with D3 to render nodes and edges seamlessly and with
+light-weight integration costs.
+
+Getting Started:
+The first step is to create a rectangular display 
+area that you can start displaying images on. 
+Pixi has an Application object that creates this for you. 
+It automatically generates an HTML <canvas> element and 
+figures out how to display your images on the canvas. 
+You then need to create a special Pixi Container object 
+called the stage. As you'll see ahead, this stage object 
+is going to be used as the root container that holds 
+all the things you want Pixi to display.
+--> Used in graph.js in the Breadcrumbs directory
+Example Renderer:
+**
+//Create a Pixi Application
+const app = new PIXI.Application({width: 256, height: 256});
+
+//Add the canvas that Pixi automatically created for you to the HTML document
+document.body.appendChild(app.view);
+**
+Settings Options:
+**
+const app = new PIXI.Application({ 
+    width: 256,         // default: 800
+    height: 256,        // default: 600
+    antialias: true,    // default: false
+    transparent: false, // default: false
+    resolution: 1       // default: 1
+  }
+);
+**
+Pixi's renderer object will default to WebGL,
+ which is good, because WebGL is incredibly fast,
+and lets you use some spectacular visual effects 
+that you’ll learn all about ahead. The Canvas renderer 
+was removed in version 5 and above, but Pixi provides 
+a separate version named pixi.js-legacy which re-adds 
+support for the canvas renderer should you need it.
+--> Mainly uses WebGL for D3 Force.
