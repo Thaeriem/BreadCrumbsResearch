@@ -399,3 +399,53 @@ Then we have created an object of that class and passed the parameter to
 
 Then we have called the make method to create and show the car in the console.
 Finally, compile the file and see the output inside the console.
+Class Properties -----------------------------------------
+You can make properties readonly by using the readonly keyword. 
+Readonly properties must be initialized at their declaration or in the constructor. 
+**
+class Employee{
+    readonly id: number;
+    public firstName: string;
+    readonly lastName: string;
+
+    constructor(id: number, firstName: string, lastName: string){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public getFullName(){
+        return this.firstName + ' ' + this.lastName;
+    }
+}
+
+// create Employee class object
+let employee = new Employee(100, 'Ramesh', 'Fadatare');
+employee.id = 200; // Error: Cannot assign to 'id' because it is a read-only property.
+employee.lastName = 'Kapoor'; // Error: Cannot assign to 'lastName' because it is a read-only property
+console.log(employee);
+console.log(employee.getFullName());
+**
+readonly keyword designates variable as protected and will error on change of value
+- used to protect the data of TS constructs.
+Static Methods In Classes --------------------------------------------------
+TypeScript allows creating static members of a class, those that are
+visible on the class itself rather than on the instances. 
+Static members are referenced by the class name.
+**
+class Employee{
+    static fullName: string;
+
+    static getFullName(){
+        return Employee.fullName;
+    }
+}
+
+// create Employee class object
+Employee.fullName = 'Ramesh Fadatare';
+console.log(Employee.getFullName());
+**
+Output: 
+**
+Ramesh Fadatare
+**
