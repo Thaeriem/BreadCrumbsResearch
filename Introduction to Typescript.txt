@@ -295,3 +295,107 @@ The Typescript inference features can infer types in the following scenarios:
 When variables are declared and initialized
 When default values are set as parameters
 When the function return types are determined
+
+Type annotations in TypeScript are lightweight ways to record 
+the intended contract of the function or variable.
+**
+// app.ts
+
+const spiderman = (person: String) => {
+    return 'Hello, ' + person;
+}
+
+let user = 1;
+console.log(spiderman(user));
+**
+We have got an error saying that the number is not assignable to the parameter String.
+
+A compelling feature of TypeScript is the support of static typing. 
+
+It means that you can declare the types of variables, and the compiler 
+will ensure that they are not assigned the wrong kinds of values.
+
+Interfaces in TypeScript -------------------------------------------------
+Interfaces are used to type-check whether the object has a specific structure or not. 
+
+We can name the particular combination of variables by defining an interface,
+ensuring that they will always go together. 
+
+When compiled from Typescript to JavaScript, interfaces disappear –
+their only purpose is to help in the development stage.
+**
+// app.ts
+
+interface OS {
+    name: String;
+    language: String;
+}
+const desert = (type: OS): void => {
+  console.log('Android ' + type.name + ' has ' + type.language + ' language');
+};
+
+const nougat = {
+  name: 'N', 
+  language: 'Java'
+}
+
+desert(nougat);
+**
+In the above example, we have created one interface called OS. 
+It has two properties called name and language.
+
+The next step is to define a function with one argument called type,
+which is the type of interface OS.
+
+You can compile that file to the JS and see the output.
+**
+// app.js
+
+var desert = function (type) {
+    console.log('Android ' + type.name + ' has ' + type.language + ' language');
+};
+var nougat = {
+    name: 'N',
+    language: 'Java'
+};
+desert(nougat);
+**
+Class in TypeScript
+In an object-oriented programming language, the class is the template of objects.
+Thus, the class defines how an object would look regarding that object’s functionalities.
+
+The class also encapsulates the data for an object.
+
+TypeScript has built-in support for classes unsupported by ES5 and earlier versions of Javascript,
+which means that we can use the class keyword to declare one easily.
+
+Let’s see the following example.
+**
+// app.ts
+
+class Car {
+    model: String;
+    doors: Number;
+    isElectric: Boolean;
+    
+    constructor(model: String, doors: Number, isElectric: Boolean) {
+        this.model = model;
+        this.doors = doors;
+        this.isElectric = isElectric;
+    }
+
+    make(): void {
+        console.log(`This car is ${this.model} which has ${this.doors} doors` );
+    }
+}
+let newCar = new Car('Innova', 4, false);
+newCar.make();
+**
+In the above example, we defined one class with a parameterized constructor, 
+properties, and methods.
+
+Then we have created an object of that class and passed the parameter to
+ construct an object and assign the values.
+
+Then we have called the make method to create and show the car in the console.
+Finally, compile the file and see the output inside the console.
