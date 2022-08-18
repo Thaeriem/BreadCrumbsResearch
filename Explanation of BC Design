@@ -1,0 +1,47 @@
+Breadcrumbs was originally designed to be an
+internet history graphical representation of your 
+search habits on the web. Having pivoted to a more 
+user-friendly design, some of the design changes 
+will be explained below:
+Bubbles:
+-- Intended to be sessions of search on the web
+and easily manipulated by users to their 
+convenience. They should ideally be short and 
+quick to navigate (using keybinds/shortcuts to 
+open and close sessions as well as add/remove with
+one button click). The idea is to have them be easy
+to use and understand by even the least tech-savy
+users.
+-- Should be stored natively in JSON files using 
+chrome storage API and then processed into trees
+on the backend to preserve link heirarchies to 
+be displayed to users on the newtab page
+-- Ultimately be displayed as a group of data
+in visual bubbles on the graph that can be 
+further looked into and manipulated on newtab.
+Windows:
+-- Using chrome windows API's are tricky because
+of the neccesary stop-gaps added to them for 
+security reasons. For this reason it is difficuly 
+to properly use them and some workaround may need
+to be found (perhaps using tab groups instead would
+be visually better). 
+-- Should give the user the choice to add to whichever
+session that they want to and allow them to access them 
+without being on the newtab page (perhaps through 
+context menus or keybind shortcuts).
+
+The Graph:
+-- The graph should contain the users bubbles and 
+be able to be filtered to the user's preference.
+-- Links should be stored in heirarchies.
+-- Graphs should not have edges but rather be sorted
+by spheres of influence and be assigned an "id" title
+that can be renamed by the user. 
+-- Context menu's should be present on the side of 
+newtab giving users extra context.
+
+Overall our project needed a pivot to focus more on the
+user experience rather than gathering massive amounts of
+data not only from a logistical perspective but also as 
+a stop-gap for future issues.
