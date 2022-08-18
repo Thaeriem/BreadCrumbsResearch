@@ -1,0 +1,48 @@
+D3 Force Graphs Introduction:
+Documentation at -> https://github.com/d3/d3-force
+
+This module implements a velocity Verlet numerical 
+integrator for simulating physical forces on particles.
+The simulation is simplified: it assumes a constant
+unit time step Δt = 1 for each step, and a constant 
+unit mass m = 1 for all particles. As a result, 
+a force F acting on a particle is equivalent to a constant
+acceleration a over the time interval Δt, and can be
+simulated simply by adding to the particle’s velocity,
+which is then added to the particle’s position.
+
+Important notes/parts about functions:
+
+# d3.forceSimulation([nodes]) · Source
+--> Creates a blank canvas with no ostensible forces.
+Can specify no nodes and defaults as empty array. 
+simulation starts automatically and listens for tick
+events as it runs. It can also be run manually.
+
+# simulation.restart() · Source
+--> essentially clears the stage and returns the simulation.
+can be used during interaction (i.e dragging node) or to 
+resume the simulation after pausing.
+
+# simulation.stop() · Source
+--> Stops the simulation’s internal timer,
+if it is running, and returns the simulation. 
+
+# simulation.tick([iterations]) · Source
+-->  Manually steps the simulation by the 
+specified number of iterations, and returns 
+the simulation. If iterations is not specified, it defaults to 1 (single step).
+
+Many-Body
+The many-body (or n-body) force applies 
+mutually amongst all nodes. It can be used 
+to simulate gravity (attraction) if the strength 
+is positive, or electrostatic charge (repulsion) 
+if the strength is negative. This implementation 
+uses quadtrees and the Barnes–Hut approximation 
+to greatly improve performance; the accuracy can 
+be customized using the theta parameter.
+
+Unlike links, which only affect two linked nodes, 
+the charge force is global: every node affects every 
+other node, even if they are on disconnected subgraphs.
