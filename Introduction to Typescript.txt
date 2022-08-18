@@ -449,3 +449,63 @@ Output:
 **
 Ramesh Fadatare
 **
+Arrays ----------------------------
+TypeScript supports arrays, similar to JavaScript. 
+There are two ways to declare an array:
+Using square brackets. 
+This method is similar to how you would declare arrays in JavaScript.
+Example:
+**
+//  Using square brackets
+let programmingLangs : string[] = ['C', 'C++', 'Java', 'JavaScript'];
+console.log(programmingLangs); // [ 'C', 'C++', 'Java', 'JavaScript' ]
+**
+Using a generic array type, Array:
+**
+// Using a generic array type, Array<elementType>.
+let programmingLangs: Array<string> = ['C', 'C++', 'Java', 'JavaScript'];
+console.log(programmingLangs); // [ 'C', 'C++', 'Java', 'JavaScript' ]
+**
+// Add elements to array example
+let programmingLangs : string[] = ['C', 'C++', 'Java', 'JavaScript'];
+programmingLangs.push('Python');
+programmingLangs.push('Kotlin');
+**
+Multi-type arrays:
+let values: (string | number)[] = ['Apple', 2, 'Orange', 3, 4, 'Banana']; 
+// or 
+let values: Array<string | number> = ['Apple', 2, 'Orange', 3, 4, 'Banana'];
+-- Array Acess --------------------------------------------------------
+The array elements can be accessed using the index of an element e.g. 
+ArrayName[index]. The array index starts from zero, so the index of the 
+first element is zero, the index of the second element is one and so on.
+**
+// Access Array Elements
+let programmingLangs : string[] = ['C', 'C++', 'Java', 'JavaScript'];
+console.log(programmingLangs[0]); // C
+console.log(programmingLangs[1]); // C++
+console.log(programmingLangs[2]); // Java
+console.log(programmingLangs[3]); // JavaScript
+console.log(programmingLangs[4]); // undefined
+
+// Access Array Elements using Loop
+let programmingLangs : string[] = ['C', 'C++', 'Java', 'JavaScript'];
+programmingLangs.forEach(element => {
+    console.log(element);
+});
+
+// Access Array Elements using Loop
+for(let element of programmingLangs){
+    console.log(element);
+}
+**
+Iterate through the Arrays:
+**
+// Iterate Through Array
+let programmingLangs : string[] = ['C', 'C++', 'Java', 'JavaScript'];
+
+// using forEach() method
+programmingLangs.forEach(element => {
+    console.log(element);
+});
+**
